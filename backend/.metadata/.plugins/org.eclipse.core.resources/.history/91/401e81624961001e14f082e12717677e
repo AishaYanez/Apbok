@@ -1,0 +1,28 @@
+package com.aisha.appGallery.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.aisha.appGallery.entity.models.AppsGalleryKey;
+import com.aisha.appGallery.entity.services.AppsGalleryServiceImpl;
+
+@RestController
+public class AppsGalleryController {
+
+	@Autowired
+	private AppsGalleryServiceImpl appsGalleryService;
+
+	@GetMapping("/apps_galleries")
+	private boolean getStatusApp(AppsGalleryKey id) {
+		return appsGalleryService.getStatusApp(id);
+	}
+	
+	@PutMapping("/{userId}/{appId}")
+	private void putStatusApp(@PathVariable("userId") long userId, @PathVariable("appId") long appId,@RequestParam boolean status) {
+		appsGalleryService.putStatusApp(new AppsGalleryKey(userId,appId), status);
+	}
+}

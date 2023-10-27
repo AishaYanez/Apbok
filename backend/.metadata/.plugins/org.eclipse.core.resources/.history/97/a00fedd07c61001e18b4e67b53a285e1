@@ -1,0 +1,39 @@
+package com.aisha.appGallery.controllers;
+
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.aisha.appGallery.entity.models.AppsGalleryKey;
+import com.aisha.appGallery.entity.services.AppsGalleryServiceImpl;
+
+@RestController
+@RequestMapping("/apps_galleries")
+public class AppsGalleryController {
+
+	@Autowired
+	private AppsGalleryServiceImpl appsGalleryService;
+
+	@GetMapping("/apps_galleries")
+	private boolean getStatusApp(AppsGalleryKey id) {
+		return appsGalleryService.getStatusApp(id);
+	}
+	
+	@PutMapping("/{userId}/{appId}")
+    public void putStatusApp(
+        @PathVariable long userId,
+        @PathVariable long appId,
+        @RequestBody Map<String, Boolean> requestMap
+    ) {
+        boolean favorite = requestMap.get("favorite");
+        AppsGalleryKey id = new AppsGalleryKey(userId, appId);
+        appsGalleryService.putStatusApp(id, favorite);
+    }
+}

@@ -1,0 +1,19 @@
+1695831771467	Delete element
+1695831853188	Delete element
+1695832351541	Delete element
+1695832394129	Rename package 'com.aisha.appGalery.entity.model'
+1696003478428	Delete element
+1696003484243	Delete element
+1696003488926	Delete element
+1696003498181	Delete element
+1696003504848	Delete element
+1696010201208	Rename package 'com.aisha.appGalery'
+1696010235803	Rename type 'AppGaleryApplication'
+1696010256947	Rename type 'AppGaleryApplicationTests'
+1696010273829	Rename package 'com.aisha.appGalery'
+1696010309282	Rename type 'AppsGalery'
+1696010316368	Rename type 'AppsGaleryKey'
+1696010332486	Rename type 'IAppsGaleryDao'
+1696012909016	Rename type 'IAppServices'
+1696012963538	Rename type 'IUserServices'
+1696013097680	Rename type 'IAppsGallery'

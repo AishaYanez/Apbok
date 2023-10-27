@@ -1,0 +1,39 @@
+package com.aisha.appGallery.entity.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.aisha.appGallery.entity.dao.IAppsGalleryDao;
+import com.aisha.appGallery.entity.models.AppsGalleryKey;
+import com.aisha.appGallery.entity.models.AppsGallery;
+import org.springframework.stereotype.Service;
+
+@Service
+public class AppsGalleryServiceImpl implements IAppsGalleryService{
+	
+	@Autowired
+	private IAppsGalleryDao appsGalleryDao;
+	
+	@Override
+	public boolean getStatusApp(AppsGalleryKey id) {
+		 AppsGallery appGallery = appsGalleryDao.findById(id).get();
+		 return appGallery.getFavorite();
+	}
+
+	@Override
+	public void putStatusApp(AppsGalleryKey id, boolean favorite) {
+		System.out.println("hoooooooooooooooolooooooooo");
+		appsGalleryDao.findById(id).ifPresent(x -> {
+			System.out.println(favorite);
+			x.setFavorite(favorite);
+			appsGalleryDao.save(x);
+		});	
+	}
+
+	@Override
+	public void deleteAllAppsOfUser(long userId) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+}

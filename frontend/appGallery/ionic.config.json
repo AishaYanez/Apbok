@@ -1,7 +1,0 @@
-{
-  "name": "appGalery",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}
