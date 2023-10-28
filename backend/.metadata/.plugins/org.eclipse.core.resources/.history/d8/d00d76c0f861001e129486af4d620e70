@@ -1,9 +1,0 @@
-package com.aisha.appGallery.entity.services;
-
-import com.aisha.appGallery.entity.models.AppsGalleryKey;
-
-public interface IAppsGalleryService {
-	public boolean getStatusApp(AppsGalleryKey id);
-	public void putStatusApp(AppsGalleryKey id, boolean favorite);
-	public void deleteAllAppsOfUser(long userId);
-}
