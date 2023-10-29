@@ -65,7 +65,6 @@ public class UserController {
 	@PutMapping("/users")
 	private ResponseEntity<String> putUser(@RequestParam(value = "email") String email, String password) {
 		try {
-			System.out.print("hasta aqui llega");
 			userService.putPassword(email, password);
 	        return ResponseEntity.ok("Usuario actualizado con éxito");
 	    } catch (Exception e) {

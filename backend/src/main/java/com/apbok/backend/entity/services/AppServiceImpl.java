@@ -38,5 +38,4 @@ public class AppServiceImpl implements IAppService{
 	public void deleteApp(long id) {
 		appDao.deleteById(id);
 	}
-
 }

@@ -13,46 +13,46 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.apbok.backend.entity.models.App;
-import com.apbok.backend.entity.services.AppServiceImpl;
+import com.apbok.backend.entity.models.Book;
+import com.apbok.backend.entity.services.BookServiceImpl;
 
 @CrossOrigin(origins = "*")
 @RestController
-public class AppController {
-
+public class BookController {
+	
 	@Autowired
-	private AppServiceImpl appService;
+	private BookServiceImpl bookService;
 	
-	@GetMapping("/apps")
-	private List<App> getAllApps(){
-		return (List<App>)appService.getAllApps();
+	@GetMapping("/books")
+	private List<Book> getAllBooks(){
+		return (List<Book>)bookService.getAllBooks();
 	}
 	
-	@PostMapping("/apps")
-	public ResponseEntity<String> postApp(App app) {
+	@PostMapping("/books")
+	public ResponseEntity<String> postBook(Book book) {
 	    try {
-	        appService.postApp(app);
-	        return ResponseEntity.ok("App creada con éxito");
+	        bookService.postBook(book);
+	        return ResponseEntity.ok("Libro creado con éxito");
 	    } catch (Exception e) {
 	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error: " + e.getMessage());
 	    }
 	}
 	
-	@DeleteMapping("/apps/{id}")
-	private ResponseEntity<String> deleteApp(@PathVariable(name="id") long id){
+	@DeleteMapping("/books/{id}")
+	private ResponseEntity<String> deleteBook(@PathVariable(name="id") long id){
 		try {
-			appService.deleteApp(id);
-	        return ResponseEntity.ok("App borrada con éxito");
+			bookService.deleteBook(id);
+	        return ResponseEntity.ok("Libro borrado con éxito");
 	    } catch (Exception e) {
 	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error: " + e.getMessage());
 	    }
 	}
 	
-	@PutMapping("/apps/{id}")
-	private ResponseEntity<String> putApp(@PathVariable(name="id") long id, App app) {
+	@PutMapping("/books/{id}")
+	private ResponseEntity<String> putBook(@PathVariable(name="id") long id, Book book) {
 		try {
-			appService.putApp(app);
-	        return ResponseEntity.ok("App actualizada con éxito");
+			bookService.putBook(book);
+	        return ResponseEntity.ok("Libro actualizado con éxito");
 	    } catch (Exception e) {
 	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error: " + e.getMessage());
 	    }

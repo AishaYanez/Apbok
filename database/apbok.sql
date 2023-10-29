@@ -39,7 +39,7 @@ CREATE TABLE users_apps (
 CREATE TABLE books (
 	id INT AUTO_INCREMENT,
     img VARCHAR(100) default 'book_default.png',
-    name VARCHAR(50) NOT NULL,
+    title VARCHAR(50) NOT NULL,
     synopsis VARCHAR(150) default 'Sin descripción',
     author VARCHAR(100) default 'Autor desconocido',
     price DECIMAL(10,2) default 0.0,
