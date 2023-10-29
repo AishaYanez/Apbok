@@ -43,12 +43,12 @@ public class UserController {
 	}
 	
 	@PostMapping("/users")
-	public ResponseEntity<String> postUser(User user) {
+	public String postUser(User user) {
 	    try {
 	        userService.postUser(user);
-	        return ResponseEntity.ok("Usuario creado con éxito");
+	        return "Usuario creado con éxito";
 	    } catch (Exception e) {
-	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error: " + e.getMessage());
+	        return "Error: " + e.getMessage();
 	    }
 	}
 	

@@ -14,10 +14,10 @@ export class MyAppListComponent  implements OnInit {
   constructor( private appsGaService:AppsGalleryService, private userService:UserService) { }
 
   ngOnInit() {
-    this.userService.getUser(localStorage.getItem('emailUser')??'').subscribe((u)=>{
-      this.appsGaService.getApps(u.id).subscribe((apps: Array<App>) => {
-        this.apps = apps;
-      });
-    })
+    // this.userService.getUser(localStorage.getItem('emailUser')??'').subscribe((u)=>{
+    //   this.appsGaService.getApps(u.id).subscribe((apps: Array<App>) => {
+    //     this.apps = apps;
+    //   });
+    // })
   }
 }

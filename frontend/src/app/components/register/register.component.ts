@@ -13,7 +13,6 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() { }
   nickName: string = '';
-  codeUser: string = '';
   email: string = '';
   password: string = '';
 
@@ -21,12 +20,11 @@ export class RegisterComponent implements OnInit {
     const user: User = {
       id: 0,
       nickName: `${this.nickName}`,
-      codeUser: `${this.nickName}12345`,
+      userCode: `${this.nickName}12345`,
       email: `${this.email}`,
       password: `${this.password}`
     };
-    this.userService.postUser(user).subscribe((r) => { console.log('Respuesta del servidor:', r); },
-      (error) => {console.log('Error al realizar la solicitud: ', error);}
+    this.userService.postUser(user).subscribe((r) => { console.log('Respuesta del servidor:', r); }
     );
   }
 }

@@ -36,13 +36,12 @@ export class MenuComponent implements OnInit {
   }
 
   deleteThisUser() {
-    this.userService.getUser(localStorage.getItem('emailUser') ?? '').subscribe((u) => {
-      this.userService.deleteUser(u.id).subscribe((r) => {console.log('Respuesta del servidor:', r); },
-        (error) => { console.log('Error al realizar la solicitud: ', error); }
-      );
-      this.statusService.logOut();
-      this.router.navigate(['/']);
-    }
+    this.userService.deleteUser().subscribe((r) => { console.log('Respuesta del servidor:', r); },
+      (error) => {
+        console.log('Error al realizar la solicitud: ', error);
+        this.statusService.logOut();
+        this.router.navigate(['/']);
+      }
     );
   }
 

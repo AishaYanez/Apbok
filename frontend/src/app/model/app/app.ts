@@ -1,6 +1,6 @@
 export class App {
     id!:number;
-    imgApp!: string;
+    img!: string;
     name!: string;
     description!: string;
     price!: number;

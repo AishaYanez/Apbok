@@ -56,3 +56,6 @@ CREATE TABLE users_books (
     CONSTRAINT users_books_fk2 FOREIGN KEY(book_id)
     REFERENCES books(id)
 );
+
+INSERT INTO users (user_code, nick_name, email, password)
+VALUES ('user123','user','email@host.es','123');

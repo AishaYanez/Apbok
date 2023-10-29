@@ -22,7 +22,7 @@ export class StatusLoginService {
   logOut() {
     const userLogin: User = {
       id: 0,
-      codeUser: '',
+      userCode: '',
       nickName: '',
       email: '',
       password: ''
@@ -41,7 +41,7 @@ export class StatusLoginService {
         localStorage.setItem('loggedIn', 'true');
         this.userLogin = {
           id: u.id,
-          codeUser: u.codeUser,
+          userCode: u.userCode,
           nickName: u.nickName,
           email: u.email,
           password: u.password

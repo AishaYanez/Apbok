@@ -29,32 +29,29 @@ public class AppController {
 	}
 	
 	@PostMapping("/apps")
-	public ResponseEntity<String> postApp(App app) {
+	public void postApp(App app) {
 	    try {
 	        appService.postApp(app);
-	        return ResponseEntity.ok("App creada con éxito");
 	    } catch (Exception e) {
-	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error: " + e.getMessage());
+	        System.out.println("Error: " + e.getMessage());
 	    }
 	}
 	
 	@DeleteMapping("/apps/{id}")
-	private ResponseEntity<String> deleteApp(@PathVariable(name="id") long id){
+	private void deleteApp(@PathVariable(name="id") long id){
 		try {
 			appService.deleteApp(id);
-	        return ResponseEntity.ok("App borrada con éxito");
 	    } catch (Exception e) {
-	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error: " + e.getMessage());
+	        System.out.println("Error: " + e.getMessage());
 	    }
 	}
 	
 	@PutMapping("/apps/{id}")
-	private ResponseEntity<String> putApp(@PathVariable(name="id") long id, App app) {
+	private void putApp(@PathVariable(name="id") long id, App app) {
 		try {
 			appService.putApp(app);
-	        return ResponseEntity.ok("App actualizada con éxito");
 	    } catch (Exception e) {
-	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error: " + e.getMessage());
+	        System.out.println("Error: " + e.getMessage());
 	    }
 	}
 }
