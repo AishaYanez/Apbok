@@ -1,3 +1,47 @@
-<p>
-  book-list works!
-</p>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Lista de Libros
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <div class="form">
+      <ion-list>
+        <ion-item>
+          <ion-label for="title" position="floating">Título</ion-label>
+          <ion-input aria-labelledby="title" name="title" id="title" type="text" [(ngModel)]="title"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label for="sypnosis" position="floating">Sinopsis</ion-label>
+          <ion-input aria-labelledby="sypnosis" id="sypnosis" name="sypnosis" type="text" [(ngModel)]="sypnosis"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label for="author" position="floating">Autor</ion-label>
+          <ion-input aria-labelledby="author" id="author" name="author" type="text" [(ngModel)]="author"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label for="price" position="floating">Precio</ion-label>
+          <ion-input aria-labelledby="price" id="price" name="price" type="number" [(ngModel)]="price"></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-button *ngIf="!edit" expand="full" (click)="addBook()">Añadir</ion-button>
+      <ion-button *ngIf="edit" expand="full" (click)="putBook()">Editar</ion-button>
+    </div>
+  <div id="card-list">
+    <ion-card *ngFor="let b of books">
+      <ion-card-header>
+        <img alt="Logo de aplicación" src="https://ionicframework.com/docs/img/demos/card-media.png"/>
+        <ion-card-title>{{b.title}}</ion-card-title>
+        <ion-card-subtitle>{{b.author}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        {{b.sypnosis}}
+      </ion-card-content>
+      <ion-accordion-group>{{b.price}}</ion-accordion-group>
+      <ion-button (click)="deleteBook(b.id)">Eliminar</ion-button>
+      <ion-button (click)="updateBook(b)">Editar</ion-button>
+    </ion-card>
+  </div>
+</ion-content>

@@ -10,6 +10,7 @@ import { AppService } from '../services/app/app.service';
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { AppListComponent } from '../components/app-list/app-list.component';
 import { MyAppListComponent } from '../components/my-app-list/my-app-list.component';
+import { BookListComponent } from '../components/book-list/book-list/book-list.component';
 
 
 @NgModule({
@@ -21,7 +22,7 @@ import { MyAppListComponent } from '../components/my-app-list/my-app-list.compon
     HttpClientModule,
     IonicStorageModule.forRoot()
   ],
-  declarations: [HomePage, AppListComponent, MyAppListComponent],
+  declarations: [HomePage, AppListComponent, BookListComponent, MyAppListComponent],
   providers:[AppService]
 })
 export class HomePageModule {}

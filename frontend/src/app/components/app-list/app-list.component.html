@@ -22,7 +22,7 @@
           <ion-input aria-labelledby="price" id="price" name="price" type="number" [(ngModel)]="price"></ion-input>
         </ion-item>
       </ion-list>
-      <ion-button expand="full" (click)="addApp()">Añadir</ion-button>
+      <ion-button *ngIf="!edit" expand="full" (click)="addApp()">Añadir</ion-button>
       <ion-button *ngIf="edit" expand="full" (click)="putApp()">Editar</ion-button>
     </div>
   <div id="card-list">

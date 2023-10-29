@@ -13,12 +13,8 @@ export class HomePage {
   public apps: Array<App> = [];
   public myApp!: App;
 
-  constructor(private router: Router, private appService:AppService,private statusService:StatusLoginService) { }
-  ngOnInit(): void {
-    // this.appService.getApps().subscribe((a: Array<App>) => {
-    //   this.apps = a;
-    // });
-  }
+  constructor(private statusService:StatusLoginService) { }
+  ngOnInit(): void { }
 
   ionViewWillEnter(): void {
     this.statusService.changeStatusLogin();

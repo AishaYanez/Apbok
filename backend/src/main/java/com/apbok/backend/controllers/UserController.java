@@ -24,17 +24,9 @@ public class UserController {
 	private UserServiceImpl userService;
 	
 	@GetMapping("/users")
-	public ResponseEntity<User> getUser(@RequestParam(value = "email") String email) {
-	    try {
-	        User user = userService.getUser(email);
-	        if (user != null) {
-	            return ResponseEntity.ok(user);
-	        } else {
-	            return ResponseEntity.notFound().build();
-	        }
-	    } catch (Exception e) {
-	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-	    }
+	public User getUser(@RequestParam(value = "email") String email) {
+		System.out.println(userService.getUser(email));
+		return userService.getUser(email);
 	}
 	
 	@GetMapping("/users/all")

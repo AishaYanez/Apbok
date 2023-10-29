@@ -23,7 +23,7 @@ export class UserService {
 
   getUser(email: String): Observable<User> {
     let url = `${this.endPoint}?email=${email}`;
-    return this.httpClient.get<User>(url);
+    return  this.httpClient.get<User>(url);
   }
 
   postUser(user: User): Observable<User> {
@@ -51,7 +51,6 @@ export class UserService {
     bodyEncoded.append("password", password);
     let body = bodyEncoded.toString();
     let url = `${this.endPoint}?email=${user.email}`;
-    console.log(this.userLogin.email);
     
     return this.httpClient.put<User>(url, body, httpOptionsUsingUrlEncoded);
   }

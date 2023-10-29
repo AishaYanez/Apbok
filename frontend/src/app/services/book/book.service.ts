@@ -20,32 +20,32 @@ export class BookService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getApps(): Observable<Book[]> {
+  getBooks(): Observable<Book[]> {
     return this.httpClient.get<Book[]>(this.endPoint);
   }
 
-  postApp(book: Book): Observable<Book> {    
+  postBook(book: Book): Observable<Book> {    
     let bodyEncode = new URLSearchParams();
-    bodyEncode.append("name", book.title);
-    bodyEncode.append("name", book.author);
-    bodyEncode.append("description", book.sypnosis);
+    bodyEncode.append("title", book.title);
+    bodyEncode.append("author", book.author);
+    bodyEncode.append("sypnosis", book.sypnosis);
     bodyEncode.append("price", book.price.toString());
 
     const body = bodyEncode.toString();
     return this.httpClient.post<Book>(this.endPoint, body, httpOptionsUsingUrlEncoded);
   }
 
-  deleteApp(id: number): Observable<Book> {
+  deleteBook(id: number): Observable<Book> {
     let url = `${this.endPoint}/${id}`;
     return this.httpClient.delete<Book>(url);
   }
 
-  updateApp(id: number, book:Book): Observable<Book> {
+  updateBook(id: number, book:Book): Observable<Book> {
     let url = `${this.endPoint}/${id}`;
     let bodyEncode = new URLSearchParams();
-    bodyEncode.append("name", book.title);
-    bodyEncode.append("name", book.author);
-    bodyEncode.append("description", book.sypnosis);
+    bodyEncode.append("title", book.title);
+    bodyEncode.append("author", book.author);
+    bodyEncode.append("sypnosis", book.sypnosis);
     bodyEncode.append("price", book.price.toString());
 
     const body = bodyEncode.toString();

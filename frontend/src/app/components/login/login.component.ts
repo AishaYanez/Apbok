@@ -12,12 +12,12 @@ import { StatusLoginService } from 'src/app/services/statusLogin/status-login.se
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router, private statusService:StatusLoginService) {}
+  constructor(private statusService:StatusLoginService) {}
 
   ngOnInit() { }
 
   email: string = 'aisha1@hola.es';
-  password: string = 'sfdsf4';
+  password: string = 'password';
 
   login() {
     this.statusService.login(this.email,this.password);

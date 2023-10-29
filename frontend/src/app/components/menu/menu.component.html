@@ -8,10 +8,11 @@
     <ion-list *ngIf="statusLogin === false">
       <ion-item (click)="navigateToLogin()">Login</ion-item>
       <ion-item (click)="navigateToApps()">Apps</ion-item>
+      <ion-item [routerLink]="['/home/books']">Books</ion-item>
     </ion-list>
     <ion-list *ngIf="statusLogin === true">
       <ion-item (click)="navigateToApps()">Apps</ion-item>
-      <ion-item [routerLink]="['/home/myApps']">Mis apps</ion-item>
+      <ion-item [routerLink]="['/home/books']">Books</ion-item>
       <ion-item (click)="navigateToChangePassword()">Cambiar Contraseña</ion-item>
       <ion-item (click)="deleteThisUser()">Eliminar cuenta</ion-item>
       <ion-item (click)="logOut()">Log out</ion-item>

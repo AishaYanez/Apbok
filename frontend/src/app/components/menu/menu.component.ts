@@ -20,6 +20,8 @@ export class MenuComponent implements OnInit {
   }
 
   navigateToApps() {
+    console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAA");
+    
     this.router.navigate(['/']);
   }
 
@@ -29,10 +31,6 @@ export class MenuComponent implements OnInit {
 
   navigateToChangePassword() {
     this.router.navigate(['/change-password']);
-  }
-
-  navigateToMyApps() {
-    this.router.navigate(['/']);
   }
 
   deleteThisUser() {

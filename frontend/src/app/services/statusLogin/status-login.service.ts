@@ -36,7 +36,9 @@ export class StatusLoginService {
 
 
   login(email:string, password:string) {
-    this.userService.getUser(email).subscribe((u: User) => {
+    this.userService.getUser(email).subscribe((u) => {
+      console.log(u.nickName);
+      
       if (u.password === password) {
         localStorage.setItem('loggedIn', 'true');
         this.userLogin = {
@@ -46,10 +48,11 @@ export class StatusLoginService {
           email: u.email,
           password: u.password
         };
+
         localStorage.setItem('emailUser',this.userLogin.email)
         this.userService.setUserLogin(this.userLogin);
         this.changeStatusLogin();
-        this.router.navigate(['/']);
+        this.router.navigate(['/change-password']);
       }
     });
   }

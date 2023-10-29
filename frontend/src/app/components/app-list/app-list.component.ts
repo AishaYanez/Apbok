@@ -18,7 +18,7 @@ export class AppListComponent implements OnInit {
   public price!: number;
   public edit: boolean = false;
 
-  constructor(private appService: AppService, private appGaService: AppsGalleryService, private userService: UserService) { }
+  constructor(private appService: AppService) { }
 
   ngOnInit(): void {
     this.getAllApps();
@@ -31,7 +31,7 @@ export class AppListComponent implements OnInit {
   }
 
   addApp() {
-    let app = {
+    let app:App = {
       id: 0,
       img: '',
       name: this.name,
@@ -58,7 +58,7 @@ export class AppListComponent implements OnInit {
   }
 
   putApp() {
-    let app = {
+    let app:App = {
       id: 0,
       img: '',
       name: this.name,
