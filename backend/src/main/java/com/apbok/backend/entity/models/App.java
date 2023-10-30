@@ -1,12 +1,15 @@
 package com.apbok.backend.entity.models;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -27,10 +30,10 @@ public class App implements Serializable {
 		this.name = name;
 		this.price = price;
 	}
-	/*
+
 	@OneToMany(mappedBy = "app")
-    Set<AppsGallery> favorite = new HashSet<AppsGallery>();
-	*/
+    Set<UserApps> favorite = new HashSet<UserApps>();
+
 	public long getId() {
 		return id;
 	}

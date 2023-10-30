@@ -37,9 +37,9 @@ export class StatusLoginService {
 
   login(email:string, password:string) {
     this.userService.getUser(email).subscribe((u) => {
-      console.log(u.nickName);
+      console.log(password + "       " + u.password);
       
-      if (u.password === password) {
+      if (u.password == password) {
         localStorage.setItem('loggedIn', 'true');
         this.userLogin = {
           id: u.id,

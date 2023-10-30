@@ -1,14 +1,17 @@
 package com.apbok.backend.entity.models;
 
 import java.io.Serializable;
+import java.util.HashSet;
 //import java.util.HashSet;
 //import java.util.Set;
+import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 //import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -38,10 +41,12 @@ public class User implements Serializable{
 		this.email = email;
 		this.password = password;
 	}
-	
-	//@OneToMany(mappedBy = "user")
-    //Set<UserApps> favorite = new HashSet<UserApps>();
+	@OneToMany(mappedBy = "user")
+    Set<UserApps> userApps = new HashSet<UserApps>();
 
+	@OneToMany(mappedBy = "user")
+    Set<UserBooks> userBooks = new HashSet<UserBooks>();
+	
 	public long getId() {
 		return id;
 	}
@@ -50,8 +55,6 @@ public class User implements Serializable{
 		this.id = id;
 	}
 	
-	/*Esta parte esta en prueba*/
-
 	public String getImg() {
 		return img;
 	}
@@ -67,8 +70,6 @@ public class User implements Serializable{
 	public void setRol(boolean rol) {
 		this.rol = rol;
 	}
-	
-	//---------------------------
 
 	public String getUserCode() {
 		return userCode;
