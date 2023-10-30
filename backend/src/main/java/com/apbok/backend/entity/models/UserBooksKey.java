@@ -15,11 +15,11 @@ public class UserBooksKey implements Serializable {
 	Long userId;
 	
 	@Column(name = "book_id")
-	Long appId;
+	Long bookId;
 
-	public UserBooksKey(Long userId, Long appId) {
+	public UserBooksKey(Long userId, Long bookId) {
 		this.userId = userId;
-		this.appId = appId;
+		this.bookId = bookId;
 	}
 
 	public Long getUserId() {
@@ -30,17 +30,17 @@ public class UserBooksKey implements Serializable {
 		this.userId = userId;
 	}
 
-	public Long getAppId() {
-		return appId;
+	public Long getBookId() {
+		return bookId;
 	}
 
-	public void setAppId(Long appId) {
-		this.appId = appId;
+	public void setBookId(Long appId) {
+		this.bookId = appId;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(appId, userId);
+		return Objects.hash(bookId, userId);
 	}
 
 	@Override
@@ -52,7 +52,7 @@ public class UserBooksKey implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		UserBooksKey other = (UserBooksKey) obj;
-		return Objects.equals(appId, other.appId) && Objects.equals(userId, other.userId);
+		return Objects.equals(bookId, other.bookId) && Objects.equals(userId, other.userId);
 	}
 	
 	public UserBooksKey() {}

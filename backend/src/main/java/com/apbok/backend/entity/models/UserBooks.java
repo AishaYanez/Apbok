@@ -20,7 +20,7 @@ public class UserBooks {
 	User user;
 	
 	@ManyToOne
-    @MapsId("appId")
+    @MapsId("bookId")
     @JoinColumn(name = "book_id")
 	Book book;
 	
